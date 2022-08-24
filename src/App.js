@@ -1,8 +1,5 @@
-import React from 'react';
-import WordleItem from './components/WordleItem';
-
 function App() {
-  return <WordleItem />;
+  return <div>wordle</div>;
 }
 
 export default App;
