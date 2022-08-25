@@ -7,7 +7,7 @@ const style = css`
   }
 
   body {
-    background-color: #333;
+    background-color: #fff;
   }
 `;
 
