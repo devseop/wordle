@@ -5,7 +5,10 @@ export default function Grid({ currentGuess, guesses, tries }) {
   return (
     <React.Fragment>
       {guesses.map((guess, index) => {
-        return <Row key={index} />;
+        if (tries === index) {
+          return <Row key={index} currentGuess={currentGuess} />;
+        }
+        return <Row key={index} guess={guess} />;
       })}
     </React.Fragment>
   );

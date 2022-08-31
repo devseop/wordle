@@ -74,7 +74,6 @@ const useWordle = answer => {
         return;
       }
       const formatted = formatGuess();
-      console.log(formatted);
       addNewGuess(formatted);
     }
 
