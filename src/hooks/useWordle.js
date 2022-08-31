@@ -6,6 +6,7 @@ const useWordle = answer => {
   const [guesses, setGuesses] = useState([...Array(6)]); // 입력한 값의 모음
   const [history, setHistory] = useState(['hello', 'brave']); // 입력한 값에 대한 기록
   const [isCorrect, setIsCorrect] = useState(false); // 정답유무
+  const [usedKeys, setUsedKeys] = useState({});
 
   const formatGuess = () => {
     let answerArray = [...answer];
@@ -48,6 +49,27 @@ const useWordle = answer => {
     });
     setTries(prevTries => {
       return prevTries + 1;
+    });
+    setUsedKeys(prevUsedKeys => {
+      /** 단어 입력시 조건에 맞게 컬러가 설정 */
+      formattedGuess.forEach(l => {
+        const currentColor = prevUsedKeys[l.key];
+
+        if (l.color === 'green') {
+          prevUsedKeys[l.key] = 'green';
+          return;
+        }
+        if (l.color === 'yellow' && currentColor !== 'green') {
+          prevUsedKeys[l.key] = 'yellow';
+          return;
+        }
+        if (l.color === 'gray' && currentColor !== ('green' || 'yellow')) {
+          prevUsedKeys[l.key] = 'gray';
+          return;
+        }
+      });
+
+      return prevUsedKeys;
     });
     setCurrentGuess('');
   };
@@ -93,7 +115,7 @@ const useWordle = answer => {
     }
   };
 
-  return { tries, currentGuess, guesses, isCorrect, handleKeyUp };
+  return { tries, currentGuess, guesses, isCorrect, usedKeys, handleKeyUp };
 };
 
 export default useWordle;

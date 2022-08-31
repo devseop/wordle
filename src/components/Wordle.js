@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import useWordle from '../hooks/useWordle';
 import Grid from './Grid';
+import Keypad from './Keypad';
 
 export default function Wordle({ answer }) {
-  const { currentGuess, handleKeyUp, guesses, isCorrect, tries } =
+  const { currentGuess, handleKeyUp, guesses, isCorrect, tries, usedKeys } =
     useWordle(answer);
 
   /** 키보드를 누를 때마다 handleKeyUp을 실행 */
@@ -22,6 +23,7 @@ export default function Wordle({ answer }) {
       <div>answer: {answer}</div>
       <div>current guess: {currentGuess}</div>
       <Grid currentGuess={currentGuess} guesses={guesses} tries={tries} />
+      <Keypad usedKeys={usedKeys} />
     </div>
   );
 }

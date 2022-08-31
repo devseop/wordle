@@ -48,3 +48,35 @@ h1 {
     border-color: gold;
   }
 }
+
+/* keypad */
+.keypad {
+  max-width: 500px;
+  margin: 20px auto;
+
+  div {
+    margin: 4px;
+    width: 48px;
+    height: 48px;
+    background: #eee;
+    display: inline-block;
+    border-radius: 6px;
+    line-height: 48px;
+  }
+
+  div.green {
+    background: #5ac85a;
+    color: #fff;
+    transition: all 0.3s ease-in;
+  }
+  div.yellow {
+    background: #e2cc68;
+    color: #fff;
+    transition: all 0.3s ease-in;
+  }
+  div.gray {
+    background: lightslategray;
+    color: #fff;
+    transition: all 0.3s ease-in;
+  }
+}
