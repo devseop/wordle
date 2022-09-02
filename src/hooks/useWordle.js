@@ -82,17 +82,17 @@ const useWordle = answer => {
     if (key === 'Enter') {
       /** 시도 횟수가 5번을 초과할 때 */
       if (tries > 5) {
-        console.log('you used all your guesses');
+        // console.log('you used all your guesses');
         return;
       }
       /** 입력한 단어가 중복일 때 */
       if (history.includes(currentGuess)) {
-        console.log('you already tried that word');
+        // console.log('you already tried that word');
         return;
       }
       /** 5글자를 채우지 않았을 때 */
       if (currentGuess.length !== 5) {
-        console.log('word must be 5 characters long');
+        // console.log('word must be 5 characters long');
         return;
       }
       const formatted = formatGuess();
